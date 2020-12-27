@@ -1,39 +1,27 @@
-// タイマーの基本仕様としては超小さいもの
-// 休憩時間になると、ウィンドウがでかくなって通知
-// あるいは、音楽を流す？
+// 今の時刻表示
 
-// nowで開始時刻を取得してその差を使うというアイディア
-
-//　開始時刻取得
-
-function getStartTime(){
-	const startTime = new Date();
-
-	console.log(`${startTime}に始まりました`);
+function time(){
+	let now = new Date();
+	document.querySelector("#now").innerHTML = now.toLocaleTimeString();
 }
+setInterval('time()',1000);
 
+// ポモドーロスタート
 
-function getEndTime(){
-	const endTime = new Date();
-	console.log(`${endTime}に終了`);
+function startPomo(){
+	const start_time = new Date();
+
+	document.querySelector('#start_time').innerHTML = start_time.toLocaleTimeString();
+
+	const msec_first_pomo = toTimeMsec(start_time, 25);
+
+	const first_pomo = new Date();
+	first_pomo.setTime(msec_first_pomo);
+
+	document.querySelector('#first_pomo').innerHTML = first_pomo.toLocaleTimeString();
+
+	//　テキスト時間表示をミリセカンドに変換
+	function toTimeMsec(timeStr, min){
+		return timeStr.getTime() + min * 1000 * 60
+	}
 }
-
-function getElapsedTime(start,end){
-	let elapsedTime = end.getTime() - start.getTime()
-	console.log(elapsedTime);
-}
-
-
-function Message () {
-	console.log('25');
-}
-
-function Timer() {
-	let counter = 6
-
-	counter % 3 != 0 ?
-	window.setTimeout( Message, 2*1000 ) : alert('3の倍数')
-
-}
-
-// setTimeoutの第1引数は関数　ー＞　記載するときに（）はいらないけど、関数として認識されている？

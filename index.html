@@ -9,14 +9,21 @@
 <body>
 <h1>ほるもん’ｓ　ポモドーロタイマー</h1>
 
-<button onclick="getStartTime();">開始時刻</button>
+<h2 id="now"></h2><!-- /#NOW -->
 
-<button onclick="getEndTime();">終了時刻</button>
+<button onclick="startPomo();">ポモドーロスタート</button>
 
-<button onclick="Timer();">タイマー</button>
+<h2>はじめた時刻</h2>
+<p id="start_time"></p><!-- /#start_time -->
+
+<h2>ポモドーロ1</h2>
+<p id="first_pomo"></p><!-- /#first_pomo -->
+
+<h2>休憩１</h2>
+<p id="break-1"></p><!-- /#rest-1 -->
 
 
-
+<script src="./scripts/countUp.js"></script>
 <script src="./scripts/main.js"></script>
 </body>
 </html>
