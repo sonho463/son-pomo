@@ -6,26 +6,6 @@ function time(){
 }
 setInterval('time()',1000);
 
-// ポモドーロスタート
-
-function startPomo(){
-	const start_time = new Date();
-
-	document.querySelector('#start_time').innerHTML = start_time.toLocaleTimeString();
-
-	const msec_first_pomo = toTimeMsec(start_time, 25);
-
-	const first_pomo = new Date();
-	first_pomo.setTime(msec_first_pomo);
-
-	document.querySelector('#first_pomo').innerHTML = first_pomo.toLocaleTimeString();
-
-	//　テキスト時間表示をミリセカンドに変換
-	function toTimeMsec(timeStr, min){
-		return timeStr.getTime() + min * 1000 * 60
-	}
-}
-
 function makePomoArray(startTime){
 
 	let time_arr = []; // 配列定義
@@ -79,10 +59,14 @@ function addElement () {
 }
 
 function rmSchedule () {
-	let schedule = document.querySelector('#schedule');
-	let h2 = schedule.querySelectorAll('h2');
 
-	h2.forEach(function(h){
-		schedule.removeChild(h);
-	})
+	let schedule = document.querySelector('#schedule');
+
+	while(schedule.firstChild){
+		schedule.removeChild(schedule.firstChild);
+	}
+	// let h2 = schedule.querySelectorAll('h2');
+	// h2.forEach(function(h){
+	// 	schedule.removeChild(h);
+	// })
 }
