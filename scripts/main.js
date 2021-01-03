@@ -45,7 +45,7 @@ function addElement () {
 	rmSchedule(); //今の配列を削除
 
 	//表示する ul#pomoList を作成
-	pomoList = document.createElement('ul');
+	pomoList = document.createElement('div');
 	pomoList.setAttribute('id', 'pomoList');
 
 	// pomoArrayを設定して、li#pomo$ を設定
@@ -53,7 +53,7 @@ function addElement () {
 	let counter = 1
 	while(true){
 		if(pomoArray.length >= 8) break;
-		p = document.createElement('li');
+		p = document.createElement('div');
 		p.setAttribute('id', `pomo${counter}`);
 		pomoArray.push(p);
 		console.log(pomoArray);
@@ -74,12 +74,16 @@ function addElement () {
 	console.log (scheduleTime);
 	let count = 0;
 	while(count < 8){
-		// if(count % 2 == 0){
-			let text = document.createTextNode(scheduleTime[count]);
-			console.log(text);
-			document.querySelector(`#pomo${count + 1}`).appendChild(text);
+		let text = document.createTextNode(scheduleTime[count]);
+		let pText = document.createElement('p');
+			pText.appendChild(text);
+			document.querySelector(`#pomo${count + 1}`).appendChild(pText);
 			count += 1;
 	}
+
+	// 小見出し
+	
+
 }
 
 function rmSchedule () {
@@ -90,4 +94,3 @@ function rmSchedule () {
 		schedule.removeChild(schedule.firstChild);
 	}
 }
-

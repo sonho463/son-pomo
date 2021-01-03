@@ -1,6 +1,8 @@
 body {
 	width: 90%;
 	margin: 0 auto;
+	background-color: #fff;
+	color: #0936F2;
 }
 
 h1,h2,h3,h4,p {
@@ -8,11 +10,77 @@ h1,h2,h3,h4,p {
 	padding: 0;
 }
 
-.title {
-	text-align: center;
+ul {
+	list-style-type: none;
 }
 
+// li {
+// 	list-style: none;
+// }
 
-#schedule {
-	
+.title {
+	text-align: center;
+	font-size: 20px;
+	padding: 10px;
+}
+
+.main-board {
+	width:100%;
+	margin-bottom: 50px;
+	height: fit-content;
+	background-color: #0936F2;
+	color:#fff;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.nowTime {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	h2{
+		font-size: 16px;
+		margin-right: 10px;
+	}
+}
+
+.nowAttr {
+	background-color: #84882D;
+	color: #fff;
+	width: 80%;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	margin-bottom: 30px;
+}
+
+#now{
+	font-size: 24px;
+}
+
+button {
+	width: 40%;
+	height: 40px;
+	border-radius: 20px;
+	border: 0;
+	background-color: #84882D;
+	color: #fff;
+}
+
+#pomo {
+	display: flex;
+	flex-direction: column;
+}
+
+#pomoList {
+	font-size: 24px;
+	div{
+		&:nth-child(odd) {
+			background-color: pink;
+		}
+	}
 }
