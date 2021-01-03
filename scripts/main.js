@@ -6,6 +6,7 @@ function time(){
 }
 setInterval('time()',1000);
 
+// 予定時刻をいれた配列を作成
 function makePomoArray(startTime){
 
 	let time_arr = []; // 配列定義
@@ -39,23 +40,46 @@ function makePomoArray(startTime){
 	return arr;
 	}
 
-
+// 配列を表示するボタンにつける関数
 function addElement () {
 	rmSchedule(); //今の配列を削除
-	arr = makePomoArray(new Date());
-	arr.forEach(function(a){
-		// 新しい要素を作成します
-		let pomoSchedule = document.createElement("h2");
-		//　１つずつの要素をnewContentに格納
-		let newContent = document.createTextNode(a);
-		// 挿入する要素の参照を取得
-		let Parent = document.getElementById("schedule");
-		// テキストノードを新規作成した h2 に追加します
-		pomoSchedule.appendChild(newContent);
-		// DOM に新しく作られた要素とその内容を追加します
-		let currentDiv = document.getElementById("div1");
-		Parent.insertBefore(pomoSchedule, currentDiv);
-	});
+
+	//表示する ul#pomoList を作成
+	pomoList = document.createElement('ul');
+	pomoList.setAttribute('id', 'pomoList');
+
+	// pomoArrayを設定して、li#pomo$ を設定
+	let pomoArray = [];
+	let counter = 1
+	while(true){
+		if(pomoArray.length >= 8) break;
+		p = document.createElement('li');
+		p.setAttribute('id', `pomo${counter}`);
+		pomoArray.push(p);
+		console.log(pomoArray);
+		console.log(pomoArray.length);
+		counter += 1;
+	}
+
+	// pomoList以下にliを追加
+	pomoArray.forEach((pomo)=>{
+		pomoList.appendChild(pomo);
+	})
+
+	// schedule にpomoListを追加
+	schedule.appendChild(pomoList);
+
+	// スケジュールを設定
+	const scheduleTime = makePomoArray(new Date());
+	console.log (scheduleTime);
+	let count = 0;
+	while(count < 8){
+		// if(count % 2 == 0){
+			let text = document.createTextNode(scheduleTime[count]);
+			console.log(text);
+			document.querySelector(`#pomo${count + 1}`).appendChild(text);
+			count += 1;
+	}
 }
 
 function rmSchedule () {
@@ -65,8 +89,5 @@ function rmSchedule () {
 	while(schedule.firstChild){
 		schedule.removeChild(schedule.firstChild);
 	}
-	// let h2 = schedule.querySelectorAll('h2');
-	// h2.forEach(function(h){
-	// 	schedule.removeChild(h);
-	// })
 }
+

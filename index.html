@@ -4,23 +4,29 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="./styles/style.css">
-	<title>ほるもん’ｓ　ポモドーロタイマー</title>
+	<title>ほるもん’ｓ ポモドーロタイマー</title>
 </head>
 <body>
-<h1>ほるもん’ｓ　ポモドーロタイマー</h1>
+<h1 class="title">ほるもん’ｓ<br>ポモドーロタイマー</h1>
 <section class="nowTime">
 	<h2>ただいまの時刻</h2>
-	<h2 id="now"></h2><!-- /#NOW -->
-</section><!-- /.nowTime -->
+	<p id="now"></p>
+</section>
 
-<button onclick="addElement();">スケジュールをセット</button>
-<section id="schedule">
+<section id="pomo">
+	<h2 id="h2">スケジュール</h2>
+	<button onclick="addElement();">ポモドーロスタート！</button>
+	<div id="schedule">
+		<ul id="pomoList">
+			<li id="pomo1"></li><!-- /#pomo -->
+			<li id="pomo2"></li><!-- /#pomo -->
+			<li id="pomo3"></li><!-- /#pomo -->
+			<li id="pomo4"></li><!-- /#pomo -->
+		</ul>
+	</div><!-- /#schedule -->
+</section>
 
-</section><!-- /#schedule -->
 
-
-
-<script src="./scripts/countUp.js"></script>
 <script src="./scripts/main.js"></script>
 </body>
 </html>
