@@ -7,22 +7,33 @@
 	<title>ほるもん’ｓ ポモドーロタイマー</title>
 </head>
 <body>
-<h1 class="title">ほるもん’ｓ<br>ポモドーロタイマー</h1>
-<section class="nowTime">
-	<h2>ただいまの時刻</h2>
-	<p id="now"></p>
+<h1 class="title">ポモドーロタイマー<br>by horumont</h1>
+<section class="main-board">
+	<div class="nowTime">
+		<h2>Now</h2>
+		<p id="now"></p>
+	</div><!-- /.nowTime -->
+	<div class="nowAttr">
+		Work
+	</div><!-- /.nowAttr -->
 </section>
 
 <section id="pomo">
+	<button onclick="addElement();">スタート</button>
 	<h2 id="h2">スケジュール</h2>
-	<button onclick="addElement();">ポモドーロスタート！</button>
 	<div id="schedule">
-		<ul id="pomoList">
-			<li id="pomo1"></li><!-- /#pomo -->
-			<li id="pomo2"></li><!-- /#pomo -->
-			<li id="pomo3"></li><!-- /#pomo -->
-			<li id="pomo4"></li><!-- /#pomo -->
-		</ul>
+		<div id="pomoList">
+			<div id="pomo1"></div><!-- /#pomo1 -->
+			<div id="pomo2"></div><!-- /#pomo2 -->
+			<div id="pomo3"></div><!-- /#pomo3 -->
+			<div id="pomo4"></div><!-- /#pomo4 -->
+			<div id="pomo5"></div><!-- /#pomo5 -->
+			<div id="pomo6"></div><!-- /#pomo6 -->
+			<div id="pomo7"></div><!-- /#pomo7 -->
+			<div id="pomo8"></div><!-- /#pomo8 -->
+			<div id="pomo9"></div><!-- /#pomo9 -->
+
+		</div><!-- /#pomoList -->
 	</div><!-- /#schedule -->
 </section>
 
