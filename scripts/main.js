@@ -1,10 +1,50 @@
+const chime = new Audio('./audio/school_bell.mp3')
+var startFlag = false
+// const nowMsec = Date.now();
+// const msecArray = makeMsecArray(nowMsec);
+// const textArray = makePomoArray(msecArray);
+// const objArray = makeObj(msecArray, textArray)
+
+setInterval(time, 1000);
 
 // 今の時刻表示
 function time(){
+	//　時計表示
 	let now_text = new Date();
+	let nowMsec = +now_text;
 	document.querySelector("#now").innerHTML = now_text.toLocaleTimeString('fr-FR', {hour: '2-digit', minute: '2-digit'});
+
+	//　startFlagがtrueのとき、切替時にチャイム鳴らす
+	if(startFlag){
+		if(isSwitchTime()) {
+			// chime.play();
+			// chime.pause();
+			console.log('Ring the Chime!');
+		}
+
+	}
 }
-setInterval('time()',1000);
+
+
+// console.log(nowT ==tt );
+
+function isSwitchTime() {
+	nowTime = new Date();
+	nowTimeText = nowTime.toLocaleTimeString('fr-FR', {hour: '2-digit', minute: '2-digit'});
+
+	var isSwitchTime
+
+
+
+		return isSwitchTime;
+	// if(nowTimeText == pomoTime){
+	// 	console.log('true');
+	// }else{
+	// 	console.log('false');
+	// }
+};
+
+console.log(isSwitchTime());
 
 // setIntervalのコールバック関数
 // 時間が来たら音楽鳴らす
@@ -13,16 +53,19 @@ setInterval('time()',1000);
 // 配列を表示するボタンにつける関数
 function addElement () {
 	rmSchedule(); //今の配列を削除
+	startFlag = true;
 	const nowMsec = Date.now();
 	// // object 生成-----------
 	// // const nowMsec = Date.now();
-	const time_arr = [];
+	// const time_arr = [];
 	const msecArray = makeMsecArray(nowMsec);
 	const textArray = makePomoArray(msecArray);
 	const objArray = makeObj(msecArray, textArray)
 	console.log(objArray);
 	// ---------------------
 	addTextNode(objArray); // テキストノードを挿入
+
+	chime.play();
 }
 
 function addTextNode(objArray){
@@ -134,10 +177,6 @@ arr = time_arr.map(time => {
 return arr;
 }
 
-
-
-
-
 function rmSchedule () {
 
 	let pomoList = document.querySelectorAll('#pomoList > div');
@@ -145,5 +184,15 @@ function rmSchedule () {
 	pomoList.forEach(pomo =>{
 		if(pomo.firstChild) pomo.removeChild(pomo.firstChild);
 	})
+}
 
+
+function ringTheChime() {
+
+	chime.play();
+}
+
+function stopTheChime(){
+	chime.pause();
+	chime.currentTime = 0;
 }
